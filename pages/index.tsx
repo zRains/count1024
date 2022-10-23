@@ -6,12 +6,17 @@ import CardBoxBanner from '../components/CardBoxBanner'
 import ResultBox from '../components/ResultBox'
 import MainLayout from '../layouts/MainLayout'
 import type { NextPageWithLayout } from './_app'
+import Giscus from '@giscus/react'
 
 const HomeStyled = styled.div`
   padding-top: 1rem;
 
   .MainOperations {
     margin-bottom: calc(var(--u-gap) * 3);
+  }
+
+  .SymbolCardsContainer {
+    margin-bottom: 2rem;
   }
 
   .Footer {
@@ -93,6 +98,20 @@ const Page: NextPageWithLayout = () => {
         {/* Symbol Box */}
         <CardBox boxType="symbol" valueChecker={(val) => /^(\+|-|\*|\/\/|<<|>>|\*\*|\^|&|\||%)$/.test(val)} />
       </div>
+
+      <Giscus
+        repo="zRains/count1024"
+        repoId="R_kgDOISZP2g"
+        category="General"
+        categoryId="DIC_kwDOISZP2s4CSJO9"
+        mapping="specific"
+        term="Welcome To Count1024"
+        reactionsEnabled="0"
+        strict="0"
+        emitMetadata="0"
+        inputPosition="bottom"
+        theme="preferred_color_scheme"
+      />
 
       <footer className="Footer">
         <div className="PowerBy">
