@@ -23,7 +23,7 @@ const NavStyled = styled.nav`
 export default function Nav() {
   return (
     <NavStyled>
-      <Link href="https://github.com/LetMeFly666/Count1024">
+      <Link href="https://github.com/zRains/count1024">
         <a className="NavItem FlexCenter" target={'_blank'}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
