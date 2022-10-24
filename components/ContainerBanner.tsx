@@ -6,7 +6,8 @@ type Props = {
   text: string
 }
 
-export const BannerStyled = styled.div`
+export const ContainerBannerStyled = styled.div`
+  margin-top: 1rem;
   margin-bottom: calc(var(--u-gap) * 2);
   font-size: 1.1rem;
   font-weight: 700;
@@ -19,11 +20,9 @@ export const BannerStyled = styled.div`
   }
 `
 
-const CardBoxBannerStyled = styled(BannerStyled)``
-
-export default function CardBoxBanner({ children, text }: Props) {
+export default function ContainerBanner({ children, text }: Props) {
   return (
-    <CardBoxBannerStyled>
+    <ContainerBannerStyled>
       {children || (
         <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
           <path
@@ -33,6 +32,6 @@ export default function CardBoxBanner({ children, text }: Props) {
         </svg>
       )}
       <span>{text}</span>
-    </CardBoxBannerStyled>
+    </ContainerBannerStyled>
   )
 }

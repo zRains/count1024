@@ -2,11 +2,13 @@ import styled from '@emotion/styled'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { ReactElement, useState } from 'react'
-import CardBoxBanner from '../components/CardBoxBanner'
+import ContainerBanner from '../components/ContainerBanner'
 import ResultBox from '../components/ResultBox'
 import MainLayout from '../layouts/MainLayout'
 import type { NextPageWithLayout } from './_app'
 import Giscus from '@giscus/react'
+import Image from 'next/image'
+import Head from 'next/head'
 
 const HomeStyled = styled.div`
   padding-top: 1rem;
@@ -15,17 +17,35 @@ const HomeStyled = styled.div`
     margin-bottom: calc(var(--u-gap) * 3);
   }
 
-  .SymbolCardsContainer {
-    margin-bottom: 2rem;
+  .RulesContainer {
+    margin-bottom: 3rem;
+
+    .RulesImage {
+      display: block;
+      margin: calc(var(--u-gap) * 2) 0;
+
+      img {
+        border-radius: var(--u-gap);
+      }
+    }
+
+    p {
+      font-size: 0.95rem;
+      margin: 0 0 var(--u-gap) 0;
+
+      u {
+        font-size: 1.1rem;
+        font-weight: 700;
+      }
+    }
   }
 
   .Footer {
     display: flex;
     justify-content: center;
-    padding: 1rem 0;
+    padding: 2rem 0;
     color: var(--c-text-2);
-    font-size: 0.9rem;
-    font-weight: 700;
+    font-size: 0.88rem;
 
     .PowerBy {
       svg {
@@ -49,7 +69,7 @@ const HomeStyled = styled.div`
     }
 
     .FooterDivider {
-      margin: 0 var(--u-gap);
+      margin: 0 calc(var(--u-gap) * 1.5);
       height: 18px;
       width: 2px;
       background-color: var(--c-text-2);
@@ -81,6 +101,10 @@ const Page: NextPageWithLayout = () => {
 
   return (
     <HomeStyled>
+      <Head>
+        <title>count.1024</title>
+      </Head>
+
       <div className="MainOperations">
         <CalcButton handleResult={setResult} />
       </div>
@@ -88,15 +112,44 @@ const Page: NextPageWithLayout = () => {
       <ResultBox result={result} />
 
       <div className="CardsContainer NumberCardsContainer">
-        <CardBoxBanner text="MY NUMBER CARDS" />
+        <ContainerBanner text="MY NUMBER CARD(S)" />
         {/* Number Box */}
         <CardBox boxType="number" valueChecker={(val) => /^\d{1,4}$/.test(val)} />
       </div>
 
       <div className="CardsContainer SymbolCardsContainer">
-        <CardBoxBanner text="MY SYMBOL CARDS" />
+        <ContainerBanner text="MY SYMBOL CARD(S)" />
         {/* Symbol Box */}
         <CardBox boxType="symbol" valueChecker={(val) => /^(\+|-|\*|\/\/|<<|>>|\*\*|\^|&|\||%)$/.test(val)} />
+      </div>
+
+      <div className="RulesContainer">
+        <ContainerBanner text="Rules And Good Luck 😉">
+          <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+            <path
+              fill="currentColor"
+              d="M9 7v10h2v-4h.8l1.2 4h2l-1.24-4.15C14.5 12.55 15 11.84 15 11V9a2 2 0 0 0-2-2H9m2 2h2v2h-2V9m1-7a10 10 0 0 1 10 10a10 10 0 0 1-10 10A10 10 0 0 1 2 12A10 10 0 0 1 12 2Z"
+            />
+          </svg>
+        </ContainerBanner>
+        <p>This is an activity from leetcode. Let&apos;s celebrate the arrival of the 1024 festival 🎉.</p>
+
+        <div className="RulesImage">
+          <Image src="/count1024_leetcode_banner.webp" height={122} width={700} alt="count1024_leetcode_banner" />
+        </div>
+        <p>
+          <u>1.</u> Use 7 cards for 3 operations, including 2 digital cards and 1 operation symbol card for each
+          operation
+        </p>
+        <p>
+          <u>2.</u> After each operation, a number card will be generated based on the last operation result. When the
+          last operation result is exactly equal to 1024, it is recorded as &quot;success&quot;.
+        </p>
+
+        <p>
+          <u>3.</u> It should be noted that before completing 3 operations, each operation is irrevocable, which means
+          you need to be very careful with each operation.
+        </p>
       </div>
 
       <Giscus

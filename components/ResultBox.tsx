@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { useEffect, useState } from 'react'
-import { BannerStyled } from './CardBoxBanner'
+import { ContainerBannerStyled } from './ContainerBanner'
 import cn from 'classnames'
 
 type Props = {
@@ -73,7 +73,7 @@ const ResultBoxStyled = styled.div`
   }
 `
 
-const ResultBoxBannerStyled = styled(BannerStyled)`
+const ResultContainerBannerStyled = styled(ContainerBannerStyled)`
   .BoxOperations {
     display: inline-block;
     margin-left: var(--u-gap);
@@ -135,7 +135,7 @@ export default function ResultBox({ result }: Props) {
           set.add(patch)
           newRes.push(r)
         }
-      }
+      } else newRes.push(r)
     })
 
     setStatus(1)
@@ -145,7 +145,7 @@ export default function ResultBox({ result }: Props) {
 
   return (
     <>
-      <ResultBoxBannerStyled>
+      <ResultContainerBannerStyled>
         <svg preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20">
           <path
             fill="currentColor"
@@ -168,7 +168,7 @@ export default function ResultBox({ result }: Props) {
             unique
           </span>
         </div>
-      </ResultBoxBannerStyled>
+      </ResultContainerBannerStyled>
       <ResultBoxStyled>
         <ul className="ResetList">
           {res.map((r, i) => (
