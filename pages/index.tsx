@@ -47,7 +47,7 @@ const HomeStyled = styled.div`
     color: var(--c-text-2);
     font-size: 0.88rem;
 
-    .PowerBy {
+    .PoweredBy {
       svg {
         margin-left: var(--u-gap);
         vertical-align: -0.25rem;
@@ -134,9 +134,11 @@ const Page: NextPageWithLayout = () => {
         </ContainerBanner>
         <p>This is an activity from leetcode. Let&apos;s celebrate the arrival of the 1024 festival 🎉.</p>
 
-        <div className="RulesImage">
-          <Image src="/count1024_leetcode_banner.webp" height={122} width={700} alt="count1024_leetcode_banner" />
-        </div>
+        <Link href="https://leetcode.cn/2022-1024">
+          <a className="RulesImage" target={'_blank'}>
+            <Image src="/count1024_leetcode_banner.webp" height={122} width={700} alt="count1024_leetcode_banner" />
+          </a>
+        </Link>
         <p>
           <u>1.</u> Use 7 cards for 3 operations, including 2 digital cards and 1 operation symbol card for each
           operation
@@ -167,8 +169,8 @@ const Page: NextPageWithLayout = () => {
       />
 
       <footer className="Footer">
-        <div className="PowerBy">
-          Power by
+        <div className="PoweredBy">
+          Powered by
           <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 116">
             <path
               fill="currentColor"
@@ -178,7 +180,7 @@ const Page: NextPageWithLayout = () => {
         </div>
         <div className="FooterDivider"></div>
         <div className="Creator">
-          Create By
+          Designed & Created By
           <Link href={'https://github.com/zRains'}>
             <a target={'_blank'}>@zRain</a>
           </Link>

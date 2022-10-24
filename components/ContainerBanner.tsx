@@ -7,8 +7,8 @@ type Props = {
 }
 
 export const ContainerBannerStyled = styled.div`
-  margin-top: 1rem;
-  margin-bottom: calc(var(--u-gap) * 2);
+  margin-top: 1.2rem;
+  margin-bottom: 1.5rem;
   font-size: 1.1rem;
   font-weight: 700;
 
